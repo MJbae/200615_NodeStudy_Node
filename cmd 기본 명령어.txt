@@ -1,0 +1,8 @@
+dir: 하위폴더 보기(mac의 ls)
+type: 파일열기(json파일 등)(mac의 vi)
+
+node 실습
+1. node 실행: node 실행파일
+
+//nodemon으로 실행파일 변경사항을 저장하면 브라우저에 실시간 반영
+2. nodemon 실행: nodemon 실행파일
