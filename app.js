@@ -55,5 +55,12 @@ app.post('/email_post', function(req, res){
 	//email.ejs 파일에 두번째 인자를 전달함
 	// 두번째 인자의 의미는 req.body.email로 받은 값을 email.ejs 내 email이란 변수를 찾아서 치환
 	res.render('email.ejs', {'email' : req.body.email});
+
 });
 
+//json 형식으로 response 값을 처리함
+app.post('/ajax_send_email', function(req, res){
+	console.log(req.body.email);
+	var responseData = {'result' : 'ok', 'email' : req.body.email};
+	res.json(responseData);
+});

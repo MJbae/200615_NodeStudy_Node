@@ -1,0 +1,7 @@
+참고: https://coding-factory.tistory.com/143
+
+ajax란 페이지의 일부에 대해 xml형태로 request에 대해 response할 수 있는 JS의 라이브러리
+
+왜 사용하나?
+http 통신은 request시 response하면 전체 페이지를 다시 불러오는 과정을 거침.
+전체가 아닌 일부에 대해 클라이언트와 서버가 통신한다면 비용(시간, 자원) 감소

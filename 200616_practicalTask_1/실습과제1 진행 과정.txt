@@ -1,0 +1,25 @@
+검색창 만들기 
+1. express 설정
+	1) 특정 폴더에 프로젝트 초기화(npm init)
+	2) express를 package.json에 등록(npm install express --save)
+	3) index.js 생성 후 정상설치 확인(node index.js)
+
+2. 필요한 npm 모듈 설치
+	1) nodemon 설치(npm install nodemon -g)
+	  *nodemon 설치 시, 서버를 재실행시킬 필요 없이 js를 수정하면 실시간으로 반영됨
+	2) bodyparser 설치(npm install body-parser)
+	  *bodyparser는 post request 시 body를 읽어주는 미들웨어, 없으면 undefined Error를 마주하기 쉽다
+	3) ejs 설치(npm ejs install)
+	
+3. input UI 만들기
+	1) searchFormByPost.html input 태그로 입력창과 검색버튼 생성
+	2) POST 방식에 따라 검색버튼 click 시 의도한 경로에 따라 결과 출력
+	
+
+4. 검색결과 받아서 서버에서 json 형태 내리기
+5. 화면에 결과를 노출하기
+
+참고
+- NPM(Nodejs Package Manager): Nodejs 패키지(모듈) 관리 프로그램으로 각종 노드 모듈의 설치, 업데이트, 제거 기능
+- EJS(Embedded Javascript templates): HTML 템플릿 엔진 모듈
+- 템플릿 엔징을 사용하는 이유: JS 코드 연산 결과를 변수에 넣고 뷰 파일에서 사용할 수 있으므로 app.js 내 html 코드를 쓰지 않아도 됨. 
