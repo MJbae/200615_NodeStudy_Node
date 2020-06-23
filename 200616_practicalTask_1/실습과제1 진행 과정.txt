@@ -16,8 +16,9 @@
 	2) POST 방식에 따라 검색버튼 click 시 의도한 경로에 따라 결과 출력
 	
 
-4. 검색결과 받아서 서버에서 json 형태 내리기
-5. 화면에 결과를 노출하기
+4. 검색결과 받아서 서버에서 json 형태 내리기: POST 전송방식으로 json 형식의 데이터 response 처리
+
+5. 화면에 결과를 노출하기: json 형식으로 main 페이지 <div>태그에 response
 
 참고
 - NPM(Nodejs Package Manager): Nodejs 패키지(모듈) 관리 프로그램으로 각종 노드 모듈의 설치, 업데이트, 제거 기능
