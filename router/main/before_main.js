@@ -7,15 +7,9 @@ var router = express.Router();
 var path = require('path');
 
 router.get('/', function(req, res){
-	// 
-	console.log('main.js loaded', req.user);
-	var id = req.user;
-
-	res.render('main.ejs', {'id' : id});
+	console.log('main.js loaded');
 	//상대경로 처리를 해야 함(main.js와 main.html의 경로는 직속관계가 아님 ./router/main.js인 반면 main.html은 ./public/main.html)
-	//res.sendFile(path.join(__dirname, '../public/main.html'));
-
-	// 세션정보를 받아서 main.ejs로 뿌려줌
+	res.sendFile(path.join(__dirname, '../public/main.html'));
 });
 
 //router modul을 app.js에서 사용하기 위한 메소드

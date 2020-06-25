@@ -5,15 +5,21 @@ var app = express();
 
 //bodyparser를 사용하기 위한 객체생성 및 require
 var bodyParser = require('body-parser');
-var main = require('./router/main')
-var email = require('./router/email')
-var router = require('./router/index')
+var router = require('./router/index');
+
+//인증관련 모듈 불러오기
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+var flash = require('connect-flash');
+
+app.use(flash())
 
 
-
-//listen은 3000포트 기반으로 다음의 함수를 실행시킴, listen의 특징은 응답을 받기 전까지 대기한다는 것
-//listen은 비동기적으로 실행된다. 다시 말해, 아래 end of server code 부분이 동기적으로 스택에 쌓여 있다가 먼저 실행되고
-//추후 비동기 콜백함수인 listen이 실행된다. 
+// 서버를 작동시키는 메소드
+// listen은 3000포트 기반으로 다음의 함수를 실행시킴, listen의 특징은 응답을 받기 전까지 대기한다는 것
+// listen은 비동기적으로 실행된다. 다시 말해, 아래 end of server code 부분이 동기적으로 스택에 쌓여 있다가 먼저 실행되고
+// 추후 비동기 콜백함수인 listen이 실행된다. 
 app.listen(3000, function(){
 	console.log("start!! express server on port 3000")
 });
@@ -32,13 +38,22 @@ app.use(bodyParser.urlencoded({extended:true}));
 //set 메소드는 use와 사용이 다름, 첫번째 인자가 두번째 인자를 대신 지칭함을 표현
 app.set('view engine', 'ejs');
 
+/*
+인증 관련 모듈 환경설정
+*/
+app.use(session({
+	secret: 'keyboard cat',
+	resave: false,
+	saveUninitialized: true
+}))
+ app.use(passport.initialize());
+ app.use(passport.session());
 
 /*
 url routing에 대하여
 get 함수에 경로와 콜백함수를 전달한다. 이 함수도 비동기함수이다. 
 html 태그를 함께 보내면 브라우저가 해석하여 반영한다. 
 */
-// url 경로를 /main으로 들어오면 main 모듈을 사용들 
 app.use(router)
 
 

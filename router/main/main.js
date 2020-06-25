@@ -6,16 +6,13 @@ var router = express.Router();
 //상대경로를 지정하기 위한 모듈
 var path = require('path');
 
+// main page는 login한 경우에만 접근 가능
 router.get('/', function(req, res){
-	// 
-	console.log('main.js loaded', req.user);
+	// 세션 과정에서 얻은 아이디로 로그인 여부 확인 가능
 	var id = req.user;
-
+	// 아이디 정보가 없다면 login.ejs로 rendering 
+	if(!id) res.render('login.ejs');
 	res.render('main.ejs', {'id' : id});
-	//상대경로 처리를 해야 함(main.js와 main.html의 경로는 직속관계가 아님 ./router/main.js인 반면 main.html은 ./public/main.html)
-	//res.sendFile(path.join(__dirname, '../public/main.html'));
-
-	// 세션정보를 받아서 main.ejs로 뿌려줌
 });
 
 //router modul을 app.js에서 사용하기 위한 메소드
