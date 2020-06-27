@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>검색 폼</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		form{
+			margin-top: 20px
+		}
+		#searchHere{
+			width: 400px;
+			height: 60px;
+			font-size: 30px;
+		}
+		.sendAjax{
+			width: 70px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+	<img src="https://journal.kiso.or.kr/wp-content/uploads/2016/12/%EA%B8%B0%ED%9A%8D%ED%8A%B9%EC%A7%911_%ED%8A%B9%EC%84%B1%EC%9D%B4%EB%AF%B8%EC%A7%80.png">
+	
+	<!--버튼 클릭 시 '/searchPost'로 이동-->
+	<form action="/searchPost" method="post">
+		<input id="searchHere" type="text" name="searchContent">
+		<!--
+		<input id="searchClick" type="submit" value="검색" name="searchButton">
+		-->
+		<button class="sendAjax">검색</button>
+	</form>
+
+	<div class="result"></div>
+
+	<script>
+		document.querySelector('.sendAjax').addEventListener('click', 
+			function(){
+			var inputDataByAjax = document.forms[0].elements[0].value;
+			//sendAjax메서드에 아래 경로로 inputdata 값을 전달
+			sendAjax('http://localhost:3000/ajax_search', inputDataByAjax);
+		});
+
+		function sendAjax(url, data){
+			var data = {'searchContent' : data};
+			data = JSON.stringify(data);
+
+			//???
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', url);
+
+			//json 형태로 값을 쓰기 위해 content-type을 json으로 설정한다
+			xhr.setRequestHeader('Content-Type', "application/json");
+			xhr.send(data);
+
+			//응답이 제대로와서 load될 때 아래의 function이 실행됨 
+			//result의 값이 ok가 아니면 return 하고
+			//맞다면 result에 email값을 넣어서 html div class = result에 email 정보를 띄운다
+			xhr.addEventListener('load', function(){
+				var result = JSON.parse(xhr.responseText);
+				//if(result.result !== "ok") return;
+				document.querySelector(".result").innerHTML = result.searchContent;
+			})
+		};
+
+
+	</script>
+</body>
+</html>
