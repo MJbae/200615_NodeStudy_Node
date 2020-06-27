@@ -14,11 +14,11 @@ var path = require('path');
 //app.js에 데이터베이스 관련 작업이 없으므로 mysql 모듈 및 관련 변수를 email.js로 이전
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-	host: 'localhost',
+	host: 'us-cdbr-east-02.cleardb.com',
 	port: 3306,
-	user: 'root',
-	password: 'root',
-	database: 'jsman'
+	user: 'ba153f9ed785eb',
+	password: 'd13a18af',
+	database: 'heroku_e9a9c5816474fbd'
 });
 
 connection.connect();
