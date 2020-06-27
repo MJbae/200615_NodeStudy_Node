@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>검색 폼 by Get</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		form{
+			margin-top: 20px
+		}
+		#searchHere{
+			width: 400px;
+			height: 60px;
+			font-size: 30px;
+		}
+		#searchClick{
+			width: 70px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSxnvJij-MTEktejmSJosYlwLeFCwtAiS6Psx2l5p9r2JrJmemn&usqp=CAU">
+	
+	<!--버튼 클릭 시 '/searchPost'로 이동-->
+	<form action="/searchPost" method="post">
+		<input id="searchHere" type="text" name="searchContent">
+		<input id="searchClick" type="submit" value="검색" name="searchButton">
+	</form>
+</body>
+</html>
