@@ -16,5 +16,3 @@
 * signup, login, logout 로직 구현 및 ajax 기반 passport 인증 처리
 ### 20. 6. 29.(월) ~ : RESTful API
 
-# 보완할 점
-
