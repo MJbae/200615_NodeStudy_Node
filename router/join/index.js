@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var path = require('path');
+var dbConfig = require('../../config/db.config')
 
 // 인증 모듈 불러오기
 var passport = require('passport');
@@ -11,11 +12,11 @@ var flash = require('connect-flash');
 
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-	host: 'localhost',
-	port: 3306,
-	user: 'root',
-	password: 'root',
-	database: 'jsman'
+	host: dbConfig.host,
+	port: dbConfig.port,
+	user: dbConfig.user,
+	password: dbConfig.password,
+	database: dbConfig.database
 });
 connection.connect()
 

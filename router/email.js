@@ -3,15 +3,16 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var path = require('path');
+var dbConfig = require('../config/db.config')
 
 //app.js에 데이터베이스 관련 작업이 없으므로 mysql 모듈 및 관련 변수를 email.js로 이전
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-	host: 'localhost',
-	port: 3306,
-	user: 'root',
-	password: 'root',
-	database: 'jsman'
+	host: dbConfig.host,
+	port: dbConfig.port,
+	user: dbConfig.user,
+	password: dbConfig.password,
+	database: dbConfig.database
 });
 
 connection.connect();

@@ -20,8 +20,9 @@ app.use(flash())
 // listen은 3000포트 기반으로 다음의 함수를 실행시킴, listen의 특징은 응답을 받기 전까지 대기한다는 것
 // listen은 비동기적으로 실행된다. 다시 말해, 아래 end of server code 부분이 동기적으로 스택에 쌓여 있다가 먼저 실행되고
 // 추후 비동기 콜백함수인 listen이 실행된다. 
-app.listen(3000, function(){
-	console.log("start!! express server on port 3000")
+var PORT = process.env.PORT || 3000
+app.listen(PORT, function(){
+	console.log(`start!! express server on port ${PORT}`)
 });
 
 /*
