@@ -17,7 +17,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-
 router.post('/form', function(req, res){
 	//get 방식과 달리 post 방식에서는 
 	//url이 아니라 폼의 action 경로를 request 값으로 받는다. 이에 대해 아래와 같이 response한다.
