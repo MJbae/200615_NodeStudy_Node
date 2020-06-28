@@ -2,7 +2,7 @@
   "name": "200615_nodestudy_node",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "node app.js"
   },
